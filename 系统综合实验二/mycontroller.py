@@ -71,6 +71,20 @@ def writeTunnelRules(p4info_helper, ingress_sw, egress_sw, tunnel_id,
     # each switch in the path (except the last switch, which has the egress rule),
     # and you will need to select the port dynamically for each switch based on
     # your topology.
+    
+    # 2） 隧道运输规则
+    # 该规则需要添加到myTunnel_精确表中，并在
+    # 隧道ID（hdr.myTunnel.dst_ID）。流量需要转发
+    # 在连接到下一个交换机的端口上使用myTunnel_forward操作。
+    # 对于我们的简单拓扑结构，交换机1和交换机2使用
+    # 连接到两个交换机上端口2的链路。我们定义了一个变量
+    # 文件的顶部，SWITCH_TO_SWITCH_PORT，可以用作输出
+    # 此操作的端口。
+    # 我们只需要入口开关上的传输规则，因为我们是
+    # 使用简单的拓扑结构。总的来说，你需要遵守交通规则
+    # 路径中的每个开关（最后一个开关除外，它具有出口规则），
+    # 并且，您需要根据需要为每个交换机动态选择端口
+    # 你的拓扑结构。
 
     # TODO build the transit rule
     # TODO install the transit rule on the ingress switch
